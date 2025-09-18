@@ -1,0 +1,242 @@
+/* ========= CSS Reset ========= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; text-rendering: optimizeLegibility; }
+/* html:focus-within { scroll-behavior: smooth; } */
+
+/* ========= Design Guide ========= */
+:root{
+  /* Colors */
+  --white: hsl(0, 0%, 100%);
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%); 
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+  --brown-800: hsl(14, 45%, 36%);
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  /* Typography */
+  --ff-heading: "Young Serif", serif;
+  --ff-body: "Outfit", sans-serif;
+
+  /* paragraph */  
+  --fs-base: 16px;          
+  --lh: 1.6;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow: 0 20px 40px rgba(0,0,0,.06);
+}
+
+/* ========= Page ========= */
+body{
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--stone-600);
+  background: var(--stone-100);
+}
+
+.page{
+  display: grid;
+  place-items: start center;
+  padding: 2rem 1rem;
+}
+
+.card{
+  width: min(736px, 100%);
+  background: var(--white);
+  border-radius: clamp(10px, 3vw, 18px);
+  box-shadow: var(--shadow);
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+/* ========= Hero ========= */
+.hero{
+  margin: 0 0 1.5rem;
+}
+.hero img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: clamp(10px, 3vw, 10px);
+}
+
+/* ========= Intro ========= */
+.title {
+  font-family: var(--ff-heading);
+  line-height: 1.15;
+  color: var(--stone-900);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  margin: .5rem 0 1rem;
+  font-weight: normal;
+}
+
+.intro{
+  margin: 0 0 1.5rem;
+}
+
+/* ========= Preparation Box ========= */
+.prep{
+  background: var(--rose-50);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 1.75rem;
+}
+.prep h2{
+  font-size: 1.15rem;
+  color: var(--rose-800);
+  margin: 0 0 .5rem;
+  font-weight: 700;
+  font-family: var(--ff-body);
+}
+.bullets{
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+}
+.bullets li{
+  padding-left: .5rem;
+  margin: .4rem 0;
+}
+.bullets li::marker {
+  color: var(--rose-800);
+}
+.bullets .term{
+  font-weight: 700;
+}
+
+/* ========= Section Headings ========= */
+section h2{
+  font-family: var(--ff-heading);
+  color: var(--brown-800);
+  font-weight: 400;
+  margin: 1.75rem 0 .75rem;
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+}
+
+/* ========= Ingredients ========= */
+.checklist{
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+}
+.checklist li{
+  margin: .5rem 0;
+  padding-left: .5rem;
+  position: relative;
+}
+.checklist li::marker {
+  color: var(--brown-800);
+}
+
+/* ========= Section Divider ========= */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: var(--stone-150);
+  margin: 1.5rem 0;
+}
+
+/* ========= Instructions ========= */
+.steps{
+  counter-reset: step;
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+}
+.steps li{
+  margin: .75rem 0;
+  padding-left: .5rem;
+}
+.steps li::marker {
+  color: var(--brown-800);
+  font-weight: bold;
+}
+.step-title{
+  font-weight: 700;
+}
+
+/* ========= Nutrition (table-like) ========= */
+.nutrition p{ margin: 0 0 1rem; }
+.table{
+  /* border-top: 1px solid var(--stone-150); */
+  border-collapse: collapse;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: .9rem 0;
+  padding-left: 2rem;
+}
+.cell {
+  flex: 1;
+  text-align: left;
+}
+.row:not(:first-child) {
+  border-top: 1px solid var(--stone-150); /* border between rows */
+}
+/* .header{
+  font-weight: 700;
+  color: var(--stone-900);
+} */
+.value{
+  color: var(--brown-800);
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ========= Footer ========= */
+.attribution{
+  margin-top: 2rem;
+  text-align: center;
+  font-size: .85rem;
+}
+.attribution a{ color: hsl(228, 45%, 44%); }
+
+/* ========= Larger screens: increase spacing slightly ========= */
+@media (min-width: 900px){
+  .card{ padding: 2.8rem; }
+  .prep{ padding: 1.25rem 1.75rem; }
+}
+
+/* ========= Mobile Styles ========= */
+@media (max-width: 428px) {
+  body {
+    background: var(--white);
+    margin: 0;
+    padding: 0
+  }
+  
+  .page { 
+    padding: 0; 
+  }
+
+  .card { 
+    padding: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* img (hero) spans the entire view */
+  .hero{
+    width: 100vw;
+    margin-inline: calc(50% - 50vw); /* forces the img to go out of card padding */
+    margin-block: 0 1rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  /* adds content padding */
+  .card > :not(.hero){
+    padding-inline: 1rem;
+  }
+
+  .prep {
+    margin-inline: 1rem;  /* left & right margins */
+  }
+}
